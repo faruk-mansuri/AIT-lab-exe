@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      svg {
+        border: 1px solid black;
+      }
+      canvas {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>svg</h3>
+    <svg width="300" height="300">
+      <circle cx="50" cy="50" r="40" fill="#4232a8" />
+
+      <!-- rx = border-radius -->
+      <rect rx="10" x="10" y="100" width="80" height="80" fill="#fa8064" />
+
+      <polygon points="200,50 250,150, 150,150" fill="#84ad97" />
+    </svg>
+
+    <h3>canvas</h3>
+    <canvas width="200" height="200"></canvas>
+
+    <script>
+      let canvas = document.querySelector('canvas');
+      ctx = canvas.getContext('2d');
+      ctx.beginPath();
+      ctx.moveTo(50, 50);
+      ctx.lineTo(100, 100);
+      ctx.lineTo(0, 100);
+      // ctx.stroke();
+      ctx.fillStyle = 'blue';
+      ctx.fill();
+    </script>
+  </body>
+</html>

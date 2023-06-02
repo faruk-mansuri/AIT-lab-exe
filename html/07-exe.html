@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="">
+      <p><b>change your color here</b></p>
+      <input type="range" class="r" name="r" min="0" max="255" /> <br />
+      <input type="range" name="g" min="0" max="255" /> <br />
+      <input type="range" name="b" min="0" max="255" /> <br />
+    </form>
+    <p class="color"></p>
+
+    <script>
+      let rgb = document.querySelectorAll('input');
+      let color = document.querySelector('.color');
+
+      let r = 128;
+      let g = 128;
+      let b = 128;
+
+      rgb.forEach((element) => {
+        element.addEventListener('input', function (e) {
+          if (element.name == 'r') {
+            r = element.value;
+          }
+          if (element.name == 'g') {
+            g = element.value;
+          }
+          if (element.name == 'b') {
+            b = element.value;
+          }
+          changeColor(r, g, b);
+        });
+      });
+
+      function changeColor(r, g, b) {
+        let rgb = `rgb(${r},${g},${b})`;
+        document.body.style.backgroundColor = rgb;
+        color.textContent = `color ${rgb}`;
+      }
+      changeColor(128, 128, 128);
+    </script>
+  </body>
+</html>
